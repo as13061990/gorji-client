@@ -16,7 +16,7 @@ class Interval {
   }
 
   private _game(): void {
-    if (!this._scene.scene.isActive('Game')) return;
+    if (!this._scene.scene.isActive('Game') || !Session.isReady()) return;
     Session.plusTime();
   }
 }

@@ -7,12 +7,14 @@ class Game extends Phaser.Scene {
   }
 
   public actions: GameActions = new GameActions(this);
+  public objects: Phaser.Physics.Arcade.Group;
 
   public init(): void {
     Session.clear();
   }
 
   public create(): void {
+    this.objects = this.physics.add.group();
     this.actions.init();
   }
 
