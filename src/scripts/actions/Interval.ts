@@ -1,3 +1,4 @@
+import Session from '../data/Session';
 import Boot from '../scenes/Boot';
 
 class Interval {
@@ -7,12 +8,16 @@ class Interval {
   }
 
   private _scene: Boot;
-  private _loop: Phaser.Time.TimerEvent;
 
   private init(): void {
-    this._loop = this._scene.time.addEvent({ delay: 1000, callback: (): void => {
+    setInterval(() => {
+      this._game();
+    }, 10);
+  }
 
-    }, loop: true });
+  private _game(): void {
+    if (!this._scene.scene.isActive('Game')) return;
+    Session.plusTime();
   }
 }
 

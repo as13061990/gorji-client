@@ -13,10 +13,11 @@ class Utils {
   }
 
   public static convertTime(time: number): string {
-    const hours = Math.floor(time / (60 * 60));
-    const minutes = Math.floor((time - (hours * 60 * 60)) / 60);
-    const seconds = time - (hours * 60 * 60) - minutes * 60;
-    return hours + ':' + (minutes.toString().length === 1 ? '0' + minutes : minutes) + ':' + (seconds.toString().length === 1 ? '0' + seconds : seconds);
+    const milli = time.toString().slice(-2);
+    time = Number(time.toString().slice(0, -2));
+    const minutes = Math.floor(time / 60);
+    const seconds = time - minutes * 60;
+    return (minutes.toString().length === 1 ? '0' + minutes : minutes) + ':' + (seconds.toString().length === 1 ? '0' + seconds : seconds) + ':' + (milli.toString().length === 1 ? '0' + milli : milli);
   }
 
   public static link(link: string): void {

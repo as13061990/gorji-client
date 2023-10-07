@@ -4,6 +4,7 @@ import * as Phaser from 'phaser';
 import Boot from './scenes/Boot';
 import Loading from './scenes/Loading';
 import UI from './scenes/UI';
+import Game from './scenes/Game';
 import Settings from './data/Settings';
 import Utils from './data/Utils';
 
@@ -45,7 +46,7 @@ window.onload = (): void => {
         }
       },
       render: { transparent: true },
-      scene: [ Boot, Loading, UI ]
+      scene: [ Boot, Loading, UI, Game ]
     }
     new Phaser.Game(config);
   }, 100);

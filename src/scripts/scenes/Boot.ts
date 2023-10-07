@@ -6,6 +6,7 @@ import Sounds from '../actions/Sounds';
 import Settings from '../data/Settings';
 import User from '../data/User';
 import PreloadConfig from '../data/PreloadConfig';
+import { screen } from '../types/enums';
 
 declare global {
   interface Window {
@@ -69,7 +70,6 @@ class Boot extends Phaser.Scene {
     if (!this._user) return;
     this._fonts = false;
     this._user = false;
-    // this.scene.launch('UI');
     Settings.setPreloadConfig(PreloadConfig.get());
     this.scene.launch('Loading');
   }
@@ -99,6 +99,9 @@ class Boot extends Phaser.Scene {
     }).then(res => {
       if (!res.data.error) {
 
+        if (res.data.data.old) {
+          Settings.setScreen(screen.MAIN);
+        }
       }
     }).catch(e => console.log(e));
     this._user = true;
