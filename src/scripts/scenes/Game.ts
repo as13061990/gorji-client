@@ -1,4 +1,5 @@
 import GameActions from '../actions/GameActions';
+import HP from '../components/HP';
 import Session from '../data/Session';
 
 class Game extends Phaser.Scene {
@@ -8,6 +9,7 @@ class Game extends Phaser.Scene {
 
   public actions: GameActions = new GameActions(this);
   public objects: Phaser.Physics.Arcade.Group;
+  public hp: HP;
 
   public init(): void {
     Session.clear();

@@ -4,6 +4,7 @@ import User from '../data/User';
 import Settings from '../data/Settings';
 import { screen } from '../types/enums';
 import Button from '../components/Button';
+import Utils from '../data/Utils';
 
 class Ratings {
   constructor(scene: UI) {
@@ -55,7 +56,7 @@ class Ratings {
         font: '30px Triomphe',
         color: color
       });
-      this._scene.add.text(width - 100, y + i * spacing, user.record.toString(), {
+      this._scene.add.text(width - 100, y + i * spacing, Utils.convertTime(user.record), {
         font: '30px Triomphe',
         color: color
       }).setOrigin(1, 0);

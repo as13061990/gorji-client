@@ -11,7 +11,7 @@ class Ready {
 
   private _build(): void {
     const { centerX, centerY, width, height } = this._scene.cameras.main;
-    const tile = this._scene.add.tileSprite(centerX, centerY, width, height, 'black-pixel').setDepth(4).setAlpha(.6);
+    const tile = this._scene.add.tileSprite(centerX, centerY, width, height, 'black-pixel').setDepth(5).setAlpha(.6);
 
     const timer = this._scene.add.text(centerX, centerY, '3', {
       font: '170px Triomphe',

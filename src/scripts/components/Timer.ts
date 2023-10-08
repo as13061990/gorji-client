@@ -17,6 +17,7 @@ class Timer extends Phaser.GameObjects.Text {
   private _build(): void {
     this._scene.add.existing(this);
     this.setOrigin(.5, .5);
+    this.setDepth(4);
   }
 
   private _getTimestring(): string {

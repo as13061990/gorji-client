@@ -48,6 +48,7 @@ class Loading extends Phaser.Scene {
   private _loading(): void {
     this._loadImages();
     this._loadSounds();
+    this._createTextures();
   }
 
   private _loadImages(): void {
@@ -60,6 +61,30 @@ class Loading extends Phaser.Scene {
     for (const key in this._config.sounds) {
       this.load.image(key, this._config.sounds[key]);
     }
+  }
+  
+  private _createTextures(): void {
+    this._createRectangle(600, 70, 0xF8F1EB, 'hp-bg');
+    this._createRectangle(600, 70, 0x6440BF, 'hp-progress');
+    this._createRectangle(604, 74, 0x000000, 'hp-borders');
+  }
+
+  private _createRectangle(width: number, height: number, color: number, key: string): void {
+    const texture = this.add.renderTexture(0, 0, width, height);
+    const rectangle = this.add.rectangle(0, 0, width, height, color).setOrigin(0, 0);
+    texture.draw(rectangle, 0, 0);
+    rectangle.destroy();
+    texture.saveTexture(key);
+    texture.destroy();
+  }
+
+  private _createCircle(radius: number, color: number, key: string): void {
+    const texture = this.add.renderTexture(0, 0, radius * 2, radius * 2);
+    const rectangle = this.add.circle(0, 0, radius, color).setOrigin(0, 0);
+    texture.draw(rectangle, 0, 0);
+    rectangle.destroy();
+    texture.saveTexture(key);
+    texture.destroy();
   }
 }
 

@@ -42,7 +42,7 @@ window.onload = (): void => {
       physics: {
         default: 'arcade',
         arcade: {
-          debug: true
+          // debug: true
         }
       },
       render: { transparent: true },

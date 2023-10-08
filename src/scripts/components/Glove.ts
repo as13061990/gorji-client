@@ -18,6 +18,7 @@ class Glove extends Phaser.Physics.Arcade.Sprite {
     this._scene.add.existing(this);
     this._scene.physics.add.existing(this);
     this.setDepth(2);
+    this.body.setCircle(this.displayWidth / 2);
 
     this._scene.input.on('pointerdown', (): void => {
       this._pointerUp = false;
@@ -52,8 +53,13 @@ class Glove extends Phaser.Physics.Arcade.Sprite {
     }
   }
 
+  public getCollision(): boolean {
+    return this._pointerUp === false;
+  }
+
   public preUpdate(): void {
     if (!Session.isReady()) return;
+    if (Session.isOver()) return;
     this._moving();
   }
 }

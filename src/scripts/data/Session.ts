@@ -32,12 +32,25 @@ class Session {
     this._hp += hp;
   }
 
-  public munusHP(hp: number): void {
+  public minusHP(hp: number): void {
     this._hp = this._hp < hp ? 0 : this._hp - hp;
   }
 
   public getHP(): number {
     return this._hp;
+  }
+
+  public isOver(): boolean {
+    return this._over;
+  }
+
+  public setOver(over: boolean): void {
+    this._over = over;
+  }
+
+  public getCo(): number {
+    const add = Math.floor(this._time / 1000) / 10;
+    return 1 + add;
   }
 }
 

@@ -1,9 +1,11 @@
+import axios from 'axios';
 import Button from '../components/Button';
 import Session from '../data/Session';
 import Settings from '../data/Settings';
 import Utils from '../data/Utils';
 import UI from '../scenes/UI';
 import { screen } from '../types/enums';
+import User from '../data/User';
 
 class Result {
   constructor(scene: UI) {
@@ -51,6 +53,8 @@ class Result {
       color: '#FFFFFF'
     }).setOrigin(.5, .5);
     back.callback = this._back.bind(this);
+
+    this._sendResult();
   }
 
   private _again(): void {
@@ -60,6 +64,13 @@ class Result {
   private _back(): void {
     Settings.setScreen(screen.MAIN);
     this._scene.scene.restart();
+  }
+
+  private _sendResult(): void {
+    axios.post(process.env.API + '/sendResult', {
+      id: User.getID(),
+      score: Session.getTime()
+    });
   }
 }
 

@@ -27,3 +27,11 @@ interface Irating {
   name: string;
   self: boolean;
 }
+interface IObjectParams {
+  sideMove: number;
+  gravity: number;
+  strongSideMove: number;
+  kick: number;
+  launch: number;
+  launchSide: number;
+}
