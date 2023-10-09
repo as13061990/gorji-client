@@ -29,7 +29,7 @@ class Session {
   }
 
   public plusHP(hp: number): void {
-    this._hp += hp;
+    this._hp = this._hp + hp > 100 ? 100 : this._hp + hp;
   }
 
   public minusHP(hp: number): void {

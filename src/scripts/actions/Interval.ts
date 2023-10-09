@@ -24,7 +24,7 @@ class Interval {
     if (!this._scene.scene.isActive('Game') || !Session.isReady() || Session.isOver()) return;
     const scene = this._scene.game.scene.getScene('Game') as Game;
     const n = Math.floor(Session.getTime() / 1000);
-    const hp = 1 + n;
+    const hp = 2 * n + 1;
     Session.minusHP(hp);
     scene.hp.setAnimation();
     
