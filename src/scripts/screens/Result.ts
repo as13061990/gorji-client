@@ -69,8 +69,10 @@ class Result {
   private _sendResult(): void {
     axios.post(process.env.API + '/sendResult', {
       id: User.getID(),
-      score: Session.getTime()
-    });
+      score: Session.getTime(),
+      session: Session.getID(),
+      hash: User.getHash()
+    }).then(res => console.log(res.data));
   }
 }
 

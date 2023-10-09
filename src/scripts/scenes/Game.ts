@@ -1,6 +1,8 @@
+import axios from 'axios';
 import GameActions from '../actions/GameActions';
 import HP from '../components/HP';
 import Session from '../data/Session';
+import User from '../data/User';
 
 class Game extends Phaser.Scene {
   constructor() {
@@ -13,11 +15,25 @@ class Game extends Phaser.Scene {
 
   public init(): void {
     Session.clear();
+    this._startGame();
   }
 
   public create(): void {
     this.objects = this.physics.add.group();
     this.actions.init();
+  }
+
+  private _startGame(): void {
+    axios.post(process.env.API + '/startGame', {
+      id: User.getID()
+    }).then(res => {
+      if (!res.data.error) {
+        User.setHash(res.data.data.hash);
+        Session.setID(res.data.data.session);
+      } else {
+        window.location.reload();
+      }
+    });
   }
 
   public move(object: Phaser.GameObjects.Sprite | Phaser.GameObjects.Text, target: Iposition = null): void {

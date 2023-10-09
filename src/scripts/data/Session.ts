@@ -1,5 +1,6 @@
 class Session {
   
+  private _id: number;
   private _time: number;
   private _hp: number;
   private _ready: boolean;
@@ -10,6 +11,14 @@ class Session {
     this._hp = 100;
     this._ready = false;
     this._over = false;
+  }
+
+  public getID(): number {
+    return this._id;
+  }
+
+  public setID(id: number): void {
+    this._id = id;
   }
 
   public plusTime(num: number = 1): void {

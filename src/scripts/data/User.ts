@@ -4,6 +4,7 @@ class User {
   private _username: string;
   private _firstname: string;
   private _lastname: string;
+  private _hash: string;
 
   public setID(id: string): void {
     this._id = id;
@@ -35,6 +36,14 @@ class User {
 
   public getLastName(): string {
     return this._lastname;
+  }
+
+  public setHash(hash: string): void {
+    this._hash = hash;
+  }
+
+  public getHash(): string {
+    return this._hash;
   }
 }
 
