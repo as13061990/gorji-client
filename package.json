@@ -1,7 +1,7 @@
 {
-  "name": "phaser-template",
+  "name": "gorji",
   "version": "1.0.1",
-  "description": "phaser template",
+  "description": "gorji game",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack/build.js",
