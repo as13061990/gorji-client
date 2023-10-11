@@ -1,10 +1,7 @@
 import Settings from '../data/Settings';
 import Main from '../screens/Main';
 import Ratings from '../screens/Ratings';
-import Result from '../screens/Result';
-import Rules1 from '../screens/Rules1';
-import Rules2 from '../screens/Rules2';
-import Rules3 from '../screens/Rules3';
+import Rules from '../screens/Rules';
 import { screen } from '../types/enums';
 
 class UI extends Phaser.Scene {
@@ -15,16 +12,10 @@ class UI extends Phaser.Scene {
   public create(): void {
     if (Settings.getScreen() === screen.MAIN) {
       new Main(this);
-    } else if (Settings.getScreen() === screen.RULES_1) {
-      new Rules1(this);
-    } else if (Settings.getScreen() === screen.RULES_2) {
-      new Rules2(this);
-    } else if (Settings.getScreen() === screen.RULES_3) {
-      new Rules3(this);
+    } else if (Settings.getScreen() === screen.RULES) {
+      new Rules(this);
     } else if (Settings.getScreen() === screen.RATINGS) {
       new Ratings(this);
-    } else if (Settings.getScreen() === screen.RESULT) {
-      new Result(this);
     }
   }
 

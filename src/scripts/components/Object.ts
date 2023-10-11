@@ -3,7 +3,7 @@ import Settings from '../data/Settings';
 import Game from '../scenes/Game';
 import { objectPosition, objectType } from '../types/enums';
 
-class Cabbage extends Phaser.Physics.Arcade.Sprite {
+class Unit extends Phaser.Physics.Arcade.Sprite {
   constructor(scene: Game, type: objectType, position: objectPosition) {
     super(scene, 0, 0, type);
     this._scene = scene;
@@ -67,7 +67,7 @@ class Cabbage extends Phaser.Physics.Arcade.Sprite {
   }
 
   private _getParams(): IObjectParams {
-    const co = Session.getCo();
+    const co = .2 + Session.getCo();
     const data = {
       sideMove: Phaser.Math.Between(10, 30),
       gravity: Phaser.Math.Between(140, 240),
@@ -101,4 +101,4 @@ class Cabbage extends Phaser.Physics.Arcade.Sprite {
   }
 }
 
-export default Cabbage;
+export default Unit;

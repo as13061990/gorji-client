@@ -1,6 +1,14 @@
 @font-face {
-  font-family: Triomphe;
-  src: url('../fonts/Triomphe.ttf');
+  font-family: Grato-Bold;
+  src: url('../fonts/Grato-Bold.otf');
+}
+@font-face {
+  font-family: Grato-Black;
+  src: url('../fonts/Grato-Black.otf');
+}
+@font-face {
+  font-family: Grato-Medium;
+  src: url('../fonts/Grato-Medium.otf');
 }
 * {
   font-family: Triomphe;
@@ -24,17 +32,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-body::before {
-  content: '';
-  background: url('../images/bg.jpg') center no-repeat;
-  background-size: cover;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: -2;
+  background: rgb(0,0,0);
+  background: linear-gradient(225deg, rgba(0,0,0,1) 50%, rgba(26,0,0,1) 100%);
 }
 canvas {
   width: 100%;
@@ -43,16 +42,6 @@ canvas {
 }
 #root {
   position: fixed;
-}
-#auth {
-  position: absolute;
-  box-sizing: border-box;
-  display: block;
-  outline: none;
-  font-family: Triomphe;
-  background: rgba(0, 0, 0, 0);
-  color: #FFFFFF;
-  border: 0px;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

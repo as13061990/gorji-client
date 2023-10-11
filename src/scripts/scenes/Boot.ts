@@ -1,12 +1,17 @@
 import axios from 'axios';
 import * as Webfont from 'webfontloader';
-import loading from '../../assets/images/loading.png';
 import Interval from '../actions/Interval';
 import Sounds from '../actions/Sounds';
 import Settings from '../data/Settings';
 import User from '../data/User';
 import PreloadConfig from '../data/PreloadConfig';
 import { screen } from '../types/enums';
+
+import logoBottle from '../../assets/images/logo-bottle.png';
+import bgLoading from '../../assets/images/bg-loading.jpg';
+import logo from '../../assets/images/logo.png';
+import loadingProgressBarBg from '../../assets/images/loading-progress-bar-bg.png';
+import loadingProgressBar from '../../assets/images/loading-progress-bar.png';
 
 declare global {
   interface Window {
@@ -50,7 +55,11 @@ class Boot extends Phaser.Scene {
   public init(): void {
     Webfont.load({
       custom: {
-        families: ['Triomphe']
+        families: [
+          'Grato-Bold',
+          'Grato-Black',
+          'Grato-Medium'
+        ]
       },
       active: (): void => {
         this._fonts = true;
@@ -62,7 +71,11 @@ class Boot extends Phaser.Scene {
   }
 
   public preload(): void {
-    this.load.image('loading', loading);
+    this.load.image('logo-bottle', logoBottle);
+    this.load.image('bg-loading', bgLoading);
+    this.load.image('logo', logo);
+    this.load.image('loading-progress-bar-bg', loadingProgressBarBg);
+    this.load.image('loading-progress-bar', loadingProgressBar);
   }
 
   public update(): void {

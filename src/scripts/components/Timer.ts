@@ -4,9 +4,9 @@ import Game from '../scenes/Game';
 
 class Timer extends Phaser.GameObjects.Text {
   constructor(scene: Game) {
-    super(scene, scene.cameras.main.centerX, 50, '', {
-      font: '40px Triomphe',
-      color: '#3B175C',
+    super(scene, scene.cameras.main.centerX, 80, '', {
+      font: '40px Grato-Bold',
+      color: '#FFFFFF',
     });
     this._scene = scene;
     this._build();

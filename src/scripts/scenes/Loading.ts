@@ -12,33 +12,34 @@ class Loading extends Phaser.Scene {
   }
 
   public preload(): void {
-    const { centerX, centerY } = this.cameras.main;
-    const sprite = this.add.sprite(centerX, centerY, 'loading');
-    this.add.tween({
-      targets: sprite,
-      rotation: Math.PI * 2,
-      repeat: -1,
-      duration: 2000
+    this.add.text(10, 10, 'build: ' + process.env.BUILD_TIME, {
+      font: '25px Grato-Bold',
+      color: '#FFFFFF'
     });
-    const bounds = sprite.getBounds();
-    const text = this.add.text(centerX, bounds.bottom + 50, 'Загрузка...0%', {
-      font: '70px Triomphe',
-      color: '#3B175C'
+    const { centerX, centerY, height } = this.cameras.main;
+    this.cameras.main.setBackgroundColor('#020202');
+    this.add.sprite(centerX, 0, 'bg-loading').setOrigin(.5, 0);
+    this.add.sprite(centerX, centerY, 'logo-bottle');
+    this.add.sprite(centerX, 73, 'logo').setOrigin(.5, 0);
+    
+    const bgProgress = this.add.sprite(centerX, height - 108, 'loading-progress-bar-bg').setOrigin(.5, 1);
+    const bounds = bgProgress.getBounds();
+    const progress = this.add.sprite(bounds.left + 15, bounds.centerY, 'loading-progress-bar').setOrigin(0, .5);
+    progress.setDisplaySize(1, progress.displayHeight);
+    
+    const text = this.add.text(centerX, bounds.centerY, '0%', {
+      font: '30px Grato-Bold',
+      color: '#FFFFFF'
     }).setOrigin(.5, .5);
-    const build = this.add.text(10, 10, 'build: ' + process.env.BUILD_TIME, {
-      font: '25px Triomphe',
-      color: '#3B175C'
-    });
 
     this.load.on('progress', (value: number): void => {
       const percent = Math.round(value * 100);
-      text.setText('Загрузка...' + percent + '%');
+      const unit = progress.width / 100;
+      progress.setDisplaySize(Math.floor(percent * unit), progress.displayHeight);
+      text.setText(percent + '%');
     }, this);
     this.load.on('complete', (): void => {
       this.load.removeAllListeners();
-      sprite.destroy();
-      text.destroy();
-      build.destroy();
       this.scene.start(this._config.scene);
     }, this);
 
@@ -64,9 +65,7 @@ class Loading extends Phaser.Scene {
   }
   
   private _createTextures(): void {
-    this._createRectangle(600, 70, 0xF8F1EB, 'hp-bg');
-    this._createRectangle(600, 70, 0x6440BF, 'hp-progress');
-    this._createRectangle(604, 74, 0x000000, 'hp-borders');
+    
   }
 
   private _createRectangle(width: number, height: number, color: number, key: string): void {

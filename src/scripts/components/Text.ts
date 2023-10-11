@@ -20,8 +20,8 @@ class Text extends Phaser.GameObjects.Sprite {
   constructor(scene: Phaser.Scene, text: string, {
     x = 0,
     y = 0,
-    fontMedium = 'Raleway-Medium',
-    fontBold = 'Raleway-Bold',
+    fontMedium = 'Grato-Bold',
+    fontBold = 'Grato-Black',
     fontSize = 26,
     lineSpacing = 6,
     align = 'center',
