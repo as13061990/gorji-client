@@ -25,7 +25,8 @@ class Interval {
     const scene = this._scene.game.scene.getScene('Game') as Game;
     const n = Math.floor(Session.getTime() / 1000);
     const hp = 2 * n + 1;
-    Session.minusHP(hp);
+    const min = 7;
+    Session.minusHP(hp < min ? min : hp);
     scene.hp.setAnimation();
     
     if (Session.getHP() === 0) {
