@@ -45,7 +45,7 @@ class Result {
       font: '35px Grato-Bold',
       color: '#DAF7FD'
     }).setOrigin(.5, .5).setShadow(5, 5, '#000000').setDepth(depth);
-    rules.callback = this._back.bind(this);
+    rules.callback = this._ratings.bind(this);
 
     this._sendResult();
   }
@@ -56,6 +56,11 @@ class Result {
 
   private _back(): void {
     Settings.setScreen(screen.MAIN);
+    this._scene.scene.start('UI');
+  }
+
+  private _ratings(): void {
+    Settings.setScreen(screen.RATINGS);
     this._scene.scene.start('UI');
   }
 

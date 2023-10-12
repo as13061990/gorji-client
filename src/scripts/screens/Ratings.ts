@@ -63,7 +63,7 @@ class Ratings {
         color: color
       }).setOrigin(1, 0);
 
-      if (i < 6) {
+      if (i < 5) {
         const bounds = player.getBounds();
         const text = i === 0 ? '🏆' : '⚡️';
         this._scene.add.text(bounds.right + 30, bounds.centerY, text, {

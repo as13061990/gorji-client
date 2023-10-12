@@ -56,7 +56,7 @@ class Rules {
       font: '35px Grato-Bold',
       color: '#FFFFFF'
     }).setOrigin(.5, .5);
-    go.callback = this._go.bind(this);
+    go.callback = this._play.bind(this);
   }
 
   private _ratings(): void {
@@ -64,9 +64,8 @@ class Rules {
     this._scene.scene.restart();
   }
 
-  private _go(): void {
-    Settings.setScreen(screen.MAIN);
-    this._scene.scene.restart();
+  private _play(): void {
+    this._scene.scene.start('Game');
   }
 }
 

@@ -19,7 +19,7 @@ class Main {
     this._scene.add.sprite(centerX, 0, 'bg').setOrigin(.5, 0).setDepth(-2);
     this._scene.add.sprite(centerX, 73, 'logo').setOrigin(.5, 0);
     
-    this._scene.add.sprite(centerX, centerY - 60, 'logo-bottle').setScale(.8).setDepth(-1);
+    this._scene.add.sprite(centerX, centerY - 60, 'logo-bottle').setScale(.8);
     const line1 = this._scene.add.text(centerX, Utils.getStretchPoint(height, 6, 2) - 100, 'ПРОДЕРЖИСЬ В ИГРЕ ДОЛЬШЕ ВСЕХ', {
       font: '32px Grato-Bold',
       color: '#FFFFFF'
@@ -88,7 +88,7 @@ class Main {
     const position = positions[Phaser.Math.Between(0, positions.length - 1)];
     const type: objectType = types[Phaser.Math.Between(0, types.length - 1)];
 
-    this._scene.time.addEvent({ delay: 1000, callback: (): void => {
+    this._scene.time.addEvent({ delay: 1500, callback: (): void => {
       const obj = new Unit(this._scene, type, position);
       this._scene.tweens.add({
         targets: obj,
@@ -119,6 +119,7 @@ class Unit extends Phaser.Physics.Arcade.Sprite {
     this._scene.add.existing(this);
     this._scene.physics.add.existing(this);
     this.setDepth(-1);
+    this.setAlpha(.6);
     this._move();
   }
 
@@ -163,7 +164,7 @@ class Unit extends Phaser.Physics.Arcade.Sprite {
   }
 
   private _getParams(): IObjectParams {
-    const co = 1.2;
+    const co = 1;
     const data = {
       sideMove: Phaser.Math.Between(10, 30),
       gravity: Phaser.Math.Between(140, 240),
