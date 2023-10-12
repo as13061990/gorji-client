@@ -2,7 +2,9 @@ import bg from '../../assets/images/bg.jpg';
 import blackPixel from '../../assets/images/black-pixel.png';
 import buttonOrange from '../../assets/images/button-orange.png';
 import buttonGrey from '../../assets/images/button-grey.png';
-import glove from '../../assets/images/glove.png';
+import glove1 from '../../assets/images/glove-1.png';
+import glove2 from '../../assets/images/glove-2.png';
+import glove3 from '../../assets/images/glove-3.png';
 import object1 from '../../assets/images/object-1.png';
 import object2 from '../../assets/images/object-2.png';
 import object3 from '../../assets/images/object-3.png';
@@ -31,7 +33,9 @@ class PreloadConfig {
     "images": {
       "bg": bg,
       "black-pixel": blackPixel,
-      "glove": glove,
+      "glove-1": glove1,
+      "glove-2": glove2,
+      "glove-3": glove3,
       "object-1": object1,
       "object-2": object2,
       "object-3": object3,

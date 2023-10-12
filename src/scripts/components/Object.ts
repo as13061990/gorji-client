@@ -21,6 +21,7 @@ class Unit extends Phaser.Physics.Arcade.Sprite {
     this._scene.add.existing(this);
     this._scene.physics.add.existing(this);
     this.setDepth(2);
+    this.setInteractive({ cursor: 'pointer '});
     this.body.setCircle(this.displayWidth / 2);
     this._scene.objects.add(this);
     this._move();

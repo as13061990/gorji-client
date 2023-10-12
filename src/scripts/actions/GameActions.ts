@@ -4,7 +4,7 @@ import Timer from '../components/Timer';
 import Object from '../components/Object';
 import Session from '../data/Session';
 import Game from '../scenes/Game';
-import { objectType, objectPosition, screen } from '../types/enums';
+import { objectType, objectPosition } from '../types/enums';
 import HP from '../components/HP';
 import Result from '../screens/Result';
 import Score from '../components/Score';
@@ -87,7 +87,10 @@ class GameActions {
   private _taking(glove: Glove, object: Object): void {
     if (Session.isOver()) return;
     if (glove.getCollision() === false) return;
-    
+    this.takeObject(object);
+  }
+
+  public takeObject(object: Object): void {
     const type = object.getType();
     const objects = [
       objectType.OBJECT_1,
@@ -128,8 +131,8 @@ class GameActions {
     const type: objectType = types[Phaser.Math.Between(0, types.length - 1)];
 
     const co = (Session.getCo() - 1) * 100;
-    const delay = Math.floor(1000 - co);
-    this._scene.time.addEvent({ delay: delay > 300 ? delay : 300, callback: (): void => {
+    const delay = Math.floor(700- co);
+    this._scene.time.addEvent({ delay: delay > 200 ? delay : 200, callback: (): void => {
       if (Session.isOver() === false) {
         const obj = new Object(this._scene, type, position);
         this._scene.tweens.add({
