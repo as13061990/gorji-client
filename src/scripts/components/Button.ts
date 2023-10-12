@@ -1,3 +1,5 @@
+import Settings from "../data/Settings";
+
 class Button extends Phaser.GameObjects.Sprite {
   constructor(
     scene: Phaser.Scene,
@@ -118,6 +120,7 @@ class Button extends Phaser.GameObjects.Sprite {
           }
         }, callbackScope: this, loop: true });
 
+        Settings.sounds.play('click');
         this.callback();
       }
     });

@@ -27,6 +27,10 @@ import particle4 from '../../assets/images/particle-4.png';
 import particle5 from '../../assets/images/particle-5.png';
 import particle6 from '../../assets/images/particle-6.png';
 
+import takeGood from '../../assets/sounds/take-good.mp3';
+import takeBad from '../../assets/sounds/take-bad.mp3';
+import click from '../../assets/sounds/click.mp3';
+
 class PreloadConfig {
   private _data: IpreloadConfig = {
     "scene": "UI",
@@ -61,7 +65,9 @@ class PreloadConfig {
       "particle-6": particle6
     },
     "sounds": {
-      
+      "take-good": takeGood,
+      "take-bad": takeBad,
+      "click": click
     }
   }
 

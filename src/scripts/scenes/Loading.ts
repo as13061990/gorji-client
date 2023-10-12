@@ -60,7 +60,7 @@ class Loading extends Phaser.Scene {
 
   private _loadSounds(): void {
     for (const key in this._config.sounds) {
-      this.load.image(key, this._config.sounds[key]);
+      this.load.audio(key, this._config.sounds[key]);
     }
   }
   

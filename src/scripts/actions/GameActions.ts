@@ -9,6 +9,7 @@ import HP from '../components/HP';
 import Result from '../screens/Result';
 import Score from '../components/Score';
 import Particle from '../components/Particle';
+import Settings from '../data/Settings';
 
 class GameActions {
   constructor(scene: Game) {
@@ -101,9 +102,11 @@ class GameActions {
       const score = type === objectType.OBJECT_2 ? 20 : 10;
       new Score(this._scene, object.x, object.y - 60, score)
       Session.plusHP(score);
+      Settings.sounds.play('take-good');
     } else {
       new Score(this._scene, object.x, object.y - 60, -10);
       Session.minusHP(10);
+      Settings.sounds.play('take-bad');
     }
     this._scene.hp.setAnimation();
     object.destroy();
