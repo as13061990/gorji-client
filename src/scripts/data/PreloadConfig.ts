@@ -14,6 +14,7 @@ import rulesIcon1 from '../../assets/images/rules-icon-1.png';
 import rulesIcon2 from '../../assets/images/rules-icon-2.png';
 import rulesIcon3 from '../../assets/images/rules-icon-3.png';
 import rulesIcon4 from '../../assets/images/rules-icon-4.png';
+import rulesIcon5 from '../../assets/images/rules-icon-5.png';
 import bgHp from '../../assets/images/bg-hp.png';
 import hpProgress from '../../assets/images/hp-progress.png';
 import backOrange from '../../assets/images/back-orange.png';
@@ -52,6 +53,7 @@ class PreloadConfig {
       "rules-icon-2": rulesIcon2,
       "rules-icon-3": rulesIcon3,
       "rules-icon-4": rulesIcon4,
+      "rules-icon-5": rulesIcon5,
       "bg-hp": bgHp,
       "hp-progress": hpProgress,
       "back-orange": backOrange,

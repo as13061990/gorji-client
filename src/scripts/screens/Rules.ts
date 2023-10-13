@@ -24,25 +24,25 @@ class Rules {
       color: '#FFFFFF'
     }).setOrigin(.5, .5).setStroke('#3592FF', 2);
     
-    const first = this._scene.add.text(bg.left + 40, bg.top + 220, '1. Пополняй ХП боттлом Gorji             и руной кремния', {
+    const first = this._scene.add.text(bg.left + 40, bg.top + 220, '1. Двигай            , кликай по боттлам Gorji             и рунам \n   кремния             и пополняй ХП.', {
       font: '32px Grato-Medium',
       color: '#FFFFFF'
-    }).setOrigin(0, 0).getBounds();
-    this._scene.add.sprite(first.right - 320, first.centerY, 'rules-icon-1');
-    this._scene.add.sprite(first.right + 60, first.centerY, 'rules-icon-2');
-
-    const second = this._scene.add.text(first.x, first.y + 100, '2. Избегай                        если хочешь продержаться дольше.', {
+    }).setOrigin(0, 0).setLineSpacing(40).getBounds();
+    this._scene.add.sprite(first.centerX + 255, first.centerY - 42, 'rules-icon-1');
+    this._scene.add.sprite(first.centerX - 228, first.centerY + 43, 'rules-icon-2');
+    this._scene.add.sprite(first.centerX - 242, first.centerY - 42, 'rules-icon-5');
+    
+    const second = this._scene.add.text(first.x, first.y + 180, '2. Избегай                        если хочешь продержаться дольше.', {
       font: '32px Grato-Medium',
       color: '#FFFFFF'
     }).setOrigin(0, 0).getBounds();
     this._scene.add.sprite(first.left + 230, second.centerY, 'rules-icon-3');
     this._scene.add.sprite(first.left + 330, second.centerY, 'rules-icon-4');
     
-    this._scene.add.text(second.x, second.y + 100, '3. Улучшай свой показатель времени столько раз, сколько\nзахочешь и фиксируй рекорд в рейтинге.', {
+    this._scene.add.text(second.x, second.y + 100, '3. Улучшай свой показатель времени столько раз, сколько\n    захочешь и фиксируй рекорд в рейтинге.', {
       font: '32px Grato-Medium',
-      color: '#FFFFFF',
-      align: 'center'
-    }).setOrigin(0, 0).setLineSpacing(40).getBounds();
+      color: '#FFFFFF'
+    }).setOrigin(0, 0).setLineSpacing(20).getBounds();
     
     const ratings = new Button(this._scene, centerX + 260, height - 140, 'button-grey');
     ratings.text = this._scene.add.text(ratings.x, ratings.y, 'РЕЙТИНГ', {
