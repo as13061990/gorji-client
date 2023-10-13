@@ -75,7 +75,7 @@ class Glove extends Phaser.Physics.Arcade.Sprite {
       targets: this,
       x: e.position.x,
       y: e.position.y,
-      duration: 150,
+      duration: 100,
       onUpdate: (e) => {
         if (e.totalProgress < .3) {
           this._state = 1;

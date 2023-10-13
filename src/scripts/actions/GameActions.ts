@@ -87,7 +87,9 @@ class GameActions {
 
   private _taking(glove: Glove, object: Object): void {
     if (Session.isOver()) return;
-    if (glove.getCollision() === false) return;
+    // if (glove.getCollision() === false) return;
+    const type = object.getType();
+    if ([objectType.OBJECT_1, objectType.OBJECT_2].find(data => data === type)) return;
     this.takeObject(object);
   }
 
