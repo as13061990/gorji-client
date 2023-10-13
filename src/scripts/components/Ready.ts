@@ -1,3 +1,4 @@
+import Settings from '../data/Settings';
 import Game from '../scenes/Game';
 
 class Ready {
@@ -26,6 +27,7 @@ class Ready {
       repeat: -1
     });
 
+    Settings.sounds.play('tick');
     const time = this._scene.time.addEvent({ delay: 1000, callback: (): void => {
       const num = Number(timer.text) - 1;
       timer.setText(num.toString());
@@ -35,6 +37,8 @@ class Ready {
         tile.destroy();
         time.remove();
         typeof this.callback === 'function' && this.callback();
+      } else {
+        Settings.sounds.play('tick');
       }
     }, loop: true });
   }

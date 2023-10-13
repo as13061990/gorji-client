@@ -30,6 +30,7 @@ import particle6 from '../../assets/images/particle-6.png';
 import takeGood from '../../assets/sounds/take-good.mp3';
 import takeBad from '../../assets/sounds/take-bad.mp3';
 import click from '../../assets/sounds/click.mp3';
+import tick from '../../assets/sounds/tick.mp3';
 
 class PreloadConfig {
   private _data: IpreloadConfig = {
@@ -67,7 +68,8 @@ class PreloadConfig {
     "sounds": {
       "take-good": takeGood,
       "take-bad": takeBad,
-      "click": click
+      "click": click,
+      "tick": tick
     }
   }
 
