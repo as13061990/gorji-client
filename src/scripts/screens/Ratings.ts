@@ -73,7 +73,7 @@ class Ratings {
       }
 
       if (i < this._rating.length - 1) {
-        this._scene.add.rectangle(x, y + i * spacing + 49, width - x * 2, 2, 0x434343).setOrigin(0, .5);
+        this._scene.add.rectangle(x, y + i * spacing + 49, width - x * 2, 3, 0x434343).setOrigin(0, .5);
       }
     });
   }
