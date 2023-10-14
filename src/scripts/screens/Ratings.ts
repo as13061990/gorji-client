@@ -48,8 +48,8 @@ class Ratings {
   private _showRating(): void {
     if (Settings.getScreen() !== screen.RATINGS) return;
     const { width, centerY } = this._scene.cameras.main;
-    const spacing = 71;
-    const y = centerY - 360;
+    const spacing = 70;
+    const y = centerY - 420;
     const x = 100;
 
     this._rating.map((user, i) => {
@@ -73,7 +73,7 @@ class Ratings {
       }
 
       if (i < this._rating.length - 1) {
-        this._scene.add.rectangle(x, y + i * spacing + 50, width - x * 2, 2, 0x434343).setOrigin(0, .5);
+        this._scene.add.rectangle(x, y + i * spacing + 49, width - x * 2, 2, 0x434343).setOrigin(0, .5);
       }
     });
   }
