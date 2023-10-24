@@ -112,7 +112,9 @@ class Boot extends Phaser.Scene {
     }).then(res => {
       if (!res.data.error) {
 
-        if (res.data.data.old) {
+        if (res.data.data.ban) {
+          Settings.setScreen(screen.BAN);
+        } else if (res.data.data.old) {
           Settings.setScreen(screen.MAIN);
         }
       }

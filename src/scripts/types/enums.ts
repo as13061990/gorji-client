@@ -2,7 +2,8 @@ enum screen {
   MAIN,
   RULES,
   RATINGS,
-  RESULT
+  RESULT,
+  BAN
 }
 enum objectPosition {
   TOP_LEFT,

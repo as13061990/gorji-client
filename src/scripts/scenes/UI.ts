@@ -1,4 +1,5 @@
 import Settings from '../data/Settings';
+import Ban from '../screens/Ban';
 import Main from '../screens/Main';
 import Ratings from '../screens/Ratings';
 import Rules from '../screens/Rules';
@@ -16,6 +17,8 @@ class UI extends Phaser.Scene {
       new Rules(this);
     } else if (Settings.getScreen() === screen.RATINGS) {
       new Ratings(this);
+    } else if (Settings.getScreen() === screen.BAN) {
+      new Ban(this);
     }
   }
 
