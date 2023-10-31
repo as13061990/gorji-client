@@ -1,4 +1,5 @@
 import Session from '../data/Session';
+import Settings from '../data/Settings';
 import Boot from '../scenes/Boot';
 import Game from '../scenes/Game';
 
@@ -12,12 +13,18 @@ class Interval {
 
   private init(): void {
     setInterval(() => this._timer(), 10);
-    setInterval(() => this._hp(), 1000);
+    setInterval(() => this._seconds(), 1000);
   }
 
   private _timer(): void {
     if (!this._scene.scene.isActive('Game') || !Session.isReady() || Session.isOver()) return;
     Session.plusTime();
+  }
+
+  private _seconds(): void {
+    const time = Settings.getTime() - 1;
+    Settings.setTime(time > 0 ? time: 0);
+    this._hp();
   }
 
   private _hp(): void {

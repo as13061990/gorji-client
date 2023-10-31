@@ -33,26 +33,42 @@ class Main {
       color: '#FF5B35'
     }).setOrigin(0, 0).getBounds();
     
-    const play = new Button(this._scene, centerX, height - 317, 'button-orange');
-    play.text = this._scene.add.text(play.x, play.y, 'ПОГНАЛИ', {
-      font: '35px Grato-Bold',
-      color: '#FFFFFF'
-    }).setOrigin(.5, .5);
-    play.callback = this._play.bind(this);
+    if (Settings.getTime() > 0) {
+      const play = new Button(this._scene, centerX, height - 317, 'button-orange');
+      play.text = this._scene.add.text(play.x, play.y, 'ПОГНАЛИ', {
+        font: '35px Grato-Bold',
+        color: '#FFFFFF'
+      }).setOrigin(.5, .5);
+      play.callback = this._play.bind(this);
+  
+      const ratings = new Button(this._scene, centerX + 260, height - 140, 'button-grey');
+      ratings.text = this._scene.add.text(ratings.x, ratings.y, 'РЕЙТИНГ', {
+        font: '35px Grato-Bold',
+        color: '#DAF7FD'
+      }).setOrigin(.5, .5).setShadow(5, 5, '#000000');
+      ratings.callback = this._ratings.bind(this);
+  
+      const rules = new Button(this._scene, centerX - 260, height - 140, 'button-grey');
+      rules.text = this._scene.add.text(rules.x, rules.y, 'ПРАВИЛА', {
+        font: '35px Grato-Bold',
+        color: '#DAF7FD'
+      }).setOrigin(.5, .5).setShadow(5, 5, '#000000');
+      rules.callback = this._rules.bind(this);
+    } else {
+      const play = new Button(this._scene, centerX - 260, height - 140, 'button-orange');
+      play.text = this._scene.add.text(play.x, play.y, 'ПОГНАЛИ', {
+        font: '35px Grato-Bold',
+        color: '#FFFFFF'
+      }).setOrigin(.5, .5);
+      play.callback = this._play.bind(this);
 
-    const ratings = new Button(this._scene, centerX + 260, height - 140, 'button-grey');
-    ratings.text = this._scene.add.text(ratings.x, ratings.y, 'РЕЙТИНГ', {
-      font: '35px Grato-Bold',
-      color: '#DAF7FD'
-    }).setOrigin(.5, .5).setShadow(5, 5, '#000000');
-    ratings.callback = this._ratings.bind(this);
-
-    const rules = new Button(this._scene, centerX - 260, height - 140, 'button-grey');
-    rules.text = this._scene.add.text(rules.x, rules.y, 'ПРАВИЛА', {
-      font: '35px Grato-Bold',
-      color: '#DAF7FD'
-    }).setOrigin(.5, .5).setShadow(5, 5, '#000000');
-    rules.callback = this._rules.bind(this);
+      const rules = new Button(this._scene, centerX + 260, height - 140, 'button-grey');
+      rules.text = this._scene.add.text(rules.x, rules.y, 'ПРАВИЛА', {
+        font: '35px Grato-Bold',
+        color: '#DAF7FD'
+      }).setOrigin(.5, .5).setShadow(5, 5, '#000000');
+      rules.callback = this._rules.bind(this);
+    }
     this._createObject();
   }
 

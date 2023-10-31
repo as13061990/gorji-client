@@ -44,19 +44,28 @@ class Rules {
       color: '#FFFFFF'
     }).setOrigin(0, 0).setLineSpacing(20).getBounds();
     
-    const ratings = new Button(this._scene, centerX + 260, height - 140, 'button-grey');
-    ratings.text = this._scene.add.text(ratings.x, ratings.y, 'РЕЙТИНГ', {
-      font: '35px Grato-Bold',
-      color: '#DAF7FD'
-    }).setOrigin(.5, .5).setShadow(5, 5, '#000000');
-    ratings.callback = this._ratings.bind(this);
-
-    const go = new Button(this._scene, centerX - 260, height - 140, 'button-orange');
-    go.text = this._scene.add.text(go.x, go.y, 'ПОГНАЛИ', {
-      font: '35px Grato-Bold',
-      color: '#FFFFFF'
-    }).setOrigin(.5, .5);
-    go.callback = this._play.bind(this);
+    if (Settings.getTime() > 0) {
+      const ratings = new Button(this._scene, centerX + 260, height - 140, 'button-grey');
+      ratings.text = this._scene.add.text(ratings.x, ratings.y, 'РЕЙТИНГ', {
+        font: '35px Grato-Bold',
+        color: '#DAF7FD'
+      }).setOrigin(.5, .5).setShadow(5, 5, '#000000');
+      ratings.callback = this._ratings.bind(this);
+  
+      const go = new Button(this._scene, centerX - 260, height - 140, 'button-orange');
+      go.text = this._scene.add.text(go.x, go.y, 'ПОГНАЛИ', {
+        font: '35px Grato-Bold',
+        color: '#FFFFFF'
+      }).setOrigin(.5, .5);
+      go.callback = this._play.bind(this);
+    } else {
+      const go = new Button(this._scene, centerX, height - 140, 'button-orange');
+      go.text = this._scene.add.text(go.x, go.y, 'ПОГНАЛИ', {
+        font: '35px Grato-Bold',
+        color: '#FFFFFF'
+      }).setOrigin(.5, .5);
+      go.callback = this._play.bind(this);
+    }
   }
 
   private _ratings(): void {

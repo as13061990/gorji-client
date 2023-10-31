@@ -29,24 +29,36 @@ class Result {
       color: '#FF5B35'
     }).setOrigin(.5, 0).setDepth(depth);
 
-    const play = new Button(this._scene, centerX, height - 317, 'button-orange').setDepth(depth);
-    play.text = this._scene.add.text(play.x, play.y, 'УЛУЧШИТЬ', {
-      font: '35px Grato-Bold',
-      color: '#FFFFFF'
-    }).setOrigin(.5, .5).setDepth(depth);
-    play.callback = this._again.bind(this);
+    if (Settings.getTime() > 0) {
+      const play = new Button(this._scene, centerX, height - 317, 'button-orange').setDepth(depth);
+      play.text = this._scene.add.text(play.x, play.y, 'УЛУЧШИТЬ', {
+        font: '35px Grato-Bold',
+        color: '#FFFFFF'
+      }).setOrigin(.5, .5).setDepth(depth);
+      play.callback = this._again.bind(this);
 
-    const back = new Button(this._scene, centerX + 260, height - 140, 'button-grey').setDepth(depth);
-    back.icon = this._scene.add.sprite(back.x, back.y, 'back-grey').setDepth(depth);
-    back.callback = this._back.bind(this);
+      const back = new Button(this._scene, centerX + 260, height - 140, 'button-grey').setDepth(depth);
+      back.icon = this._scene.add.sprite(back.x, back.y, 'back-grey').setDepth(depth);
+      back.callback = this._back.bind(this);
 
-    const rules = new Button(this._scene, centerX - 260, height - 140, 'button-grey').setDepth(depth);
-    rules.text = this._scene.add.text(rules.x, rules.y, 'СОХРАНИТЬ', {
-      font: '35px Grato-Bold',
-      color: '#DAF7FD'
-    }).setOrigin(.5, .5).setShadow(5, 5, '#000000').setDepth(depth);
-    rules.callback = this._ratings.bind(this);
+      const rules = new Button(this._scene, centerX - 260, height - 140, 'button-grey').setDepth(depth);
+      rules.text = this._scene.add.text(rules.x, rules.y, 'СОХРАНИТЬ', {
+        font: '35px Grato-Bold',
+        color: '#DAF7FD'
+      }).setOrigin(.5, .5).setShadow(5, 5, '#000000').setDepth(depth);
+      rules.callback = this._ratings.bind(this);
+    } else {
+      const play = new Button(this._scene, centerX - 260, height - 140, 'button-orange').setDepth(depth);
+      play.text = this._scene.add.text(play.x, play.y, 'УЛУЧШИТЬ', {
+        font: '35px Grato-Bold',
+        color: '#FFFFFF'
+      }).setOrigin(.5, .5).setDepth(depth);
+      play.callback = this._again.bind(this);
 
+      const back = new Button(this._scene, centerX + 260, height - 140, 'button-grey').setDepth(depth);
+      back.icon = this._scene.add.sprite(back.x, back.y, 'back-grey').setDepth(depth);
+      back.callback = this._back.bind(this);
+    }
     this._sendResult();
   }
 

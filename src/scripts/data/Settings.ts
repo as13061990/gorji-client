@@ -14,6 +14,7 @@ class Settings {
   public interval: Interval;
   private _preloadConfig: IpreloadConfig;
   private _histiry: screen[] = [];
+  private _time: number = 0;
 
   public setScreen(screen: screen): screen {
     this._histiry.push(this._screen);
@@ -43,6 +44,14 @@ class Settings {
 
   public getLastScreen(): screen {
     return this._histiry[this._histiry.length - 1];
+  }
+
+  public getTime(): number {
+    return this._time;
+  }
+
+  public setTime(time: number): void {
+    this._time = time;
   }
 }
 

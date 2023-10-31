@@ -117,6 +117,7 @@ class Boot extends Phaser.Scene {
         } else if (res.data.data.old) {
           Settings.setScreen(screen.MAIN);
         }
+        Settings.setTime(res.data.data.time);
       }
     }).catch(e => console.log(e));
     this._user = true;
