@@ -53,6 +53,7 @@ class Ratings {
     const x = 100;
 
     this._rating.map((user, i) => {
+      if (i > 9) return;
       const color = user.self ? '#FF5B35' : '#FFFFFF';
       const player = this._scene.add.text(x, y + i * spacing, (user.place + '. ' + user.name).toUpperCase(), {
         font: '25px Grato-Medium',

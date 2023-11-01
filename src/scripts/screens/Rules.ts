@@ -44,7 +44,8 @@ class Rules {
       color: '#FFFFFF'
     }).setOrigin(0, 0).setLineSpacing(20).getBounds();
     
-    if (Settings.getTime() > 0) {
+    // if (Settings.getTime() > 0) {
+    if (true) {
       const ratings = new Button(this._scene, centerX + 260, height - 140, 'button-grey');
       ratings.text = this._scene.add.text(ratings.x, ratings.y, 'РЕЙТИНГ', {
         font: '35px Grato-Bold',

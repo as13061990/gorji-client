@@ -29,7 +29,8 @@ class Result {
       color: '#FF5B35'
     }).setOrigin(.5, 0).setDepth(depth);
 
-    if (Settings.getTime() > 0) {
+    // if (Settings.getTime() > 0) {
+    if (true) {
       const play = new Button(this._scene, centerX, height - 317, 'button-orange').setDepth(depth);
       play.text = this._scene.add.text(play.x, play.y, 'УЛУЧШИТЬ', {
         font: '35px Grato-Bold',

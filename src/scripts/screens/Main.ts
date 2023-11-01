@@ -33,7 +33,8 @@ class Main {
       color: '#FF5B35'
     }).setOrigin(0, 0).getBounds();
     
-    if (Settings.getTime() > 0) {
+    // if (Settings.getTime() > 0) {
+    if (true) {
       const play = new Button(this._scene, centerX, height - 317, 'button-orange');
       play.text = this._scene.add.text(play.x, play.y, 'ПОГНАЛИ', {
         font: '35px Grato-Bold',
