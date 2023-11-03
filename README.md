@@ -16,7 +16,7 @@ HTML5 игра на движке Phaser v3.60. Telegram WebApp.
 Скопируйте `webpack/.env.EXAMPLE` с названием на `webpack/.env`
 Объявите валидные переменные в файле.
   - `PORT=3000` - порт локального запуска проекта при разработке.
-  - `API='https://example.com'` - URL API-сервера. `git@github.com:as13061990/server-client.git`
+  - `API='https://example.com'` - URL API-сервера. `git@github.com:as13061990/server-server.git`
 #### Для прода сделайте билд
 `npm run build`
 #### Настройте домен
