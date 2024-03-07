@@ -1,4 +1,3 @@
-import axios from 'axios';
 import * as Webfont from 'webfontloader';
 import Interval from '../actions/Interval';
 import Sounds from '../actions/Sounds';
@@ -104,22 +103,8 @@ class Boot extends Phaser.Scene {
     try { User.setLastName(telegram.initDataUnsafe.user.last_name); }
     catch (e) { User.setLastName(''); }
 
-    await axios.post(process.env.API + '/getData', {
-      id: User.getID(),
-      username: User.getUsername(),
-      first_name: User.getFirstName(),
-      last_name: User.getLastName()
-    }).then(res => {
-      if (!res.data.error) {
 
-        if (res.data.data.ban) {
-          Settings.setScreen(screen.BAN);
-        } else if (res.data.data.old) {
-          Settings.setScreen(screen.MAIN);
-        }
-        Settings.setTime(res.data.data.time);
-      }
-    }).catch(e => console.log(e));
+    Settings.setScreen(screen.MAIN);
     this._user = true;
   }
 }

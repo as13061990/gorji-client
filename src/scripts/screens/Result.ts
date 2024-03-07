@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Game from '../scenes/Game';
 import Button from '../components/Button';
 import Session from '../data/Session';
@@ -60,7 +59,6 @@ class Result {
       back.icon = this._scene.add.sprite(back.x, back.y, 'back-grey').setDepth(depth);
       back.callback = this._back.bind(this);
     }
-    this._sendResult();
   }
 
   private _again(): void {
@@ -75,15 +73,6 @@ class Result {
   private _ratings(): void {
     Settings.setScreen(screen.RATINGS);
     this._scene.scene.start('UI');
-  }
-
-  private _sendResult(): void {
-    axios.post(process.env.API + '/sendResult', {
-      id: User.getID(),
-      score: Session.getTime(),
-      session: Session.getID(),
-      hash: User.getHash()
-    });
   }
 }
 
