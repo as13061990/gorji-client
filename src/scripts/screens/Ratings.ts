@@ -1,4 +1,3 @@
-import axios from 'axios';
 import UI from '../scenes/UI';
 import User from '../data/User';
 import Settings from '../data/Settings';
@@ -35,14 +34,27 @@ class Ratings {
   }
 
   private _getRating(): void {
-    axios.post(process.env.API + '/getRating', {
-      id: User.getID()
-    }).then((res): void => {
-      if (!res.data.error) {
-        this._rating = res.data.data;
-        this._showRating();
+    this._rating = [
+      {
+        place: 1,
+        record: 100,
+        name: 'First user example',
+        self: false
+      },
+      {
+        place: 2,
+        record: 99,
+        name: 'Second user example',
+        self: false
+      },
+      {
+        place: 3,
+        record: 98,
+        name: 'You',
+        self: true
       }
-    });
+    ];
+    this._showRating();
   }
 
   private _showRating(): void {
